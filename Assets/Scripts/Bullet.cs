@@ -8,10 +8,21 @@ public class Bullet : MonoBehaviour
     public Vector2 direction;
 
     public float livingTime = 1.5f;
+    public Color initialColor = Color.white;
+    public Color finalColor;
+
+    private SpriteRenderer _renderer;
+    private float _startingTime;
+
+    void Awake()
+    {
+        _renderer = GetComponent<SpriteRenderer>();
+    }
 
     // Start is called before the first frame update
     void Start()
     {
+        _startingTime = Time.time;
 
         Destroy(gameObject, livingTime);
 
@@ -25,6 +36,10 @@ public class Bullet : MonoBehaviour
         //transform.position = new Vector2(transform.position.x + movement.x, transform.position.y + movement.y);
         transform.Translate(movement);
 
+        float _timeSinceStarted = Time.time - _startingTime;
+        float _percentageCompleted = _timeSinceStarted / livingTime;
+
+        _renderer.color = Color.Lerp(initialColor, finalColor, _percentageCompleted);
     }
 
 
