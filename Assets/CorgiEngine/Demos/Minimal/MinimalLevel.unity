@@ -1142,6 +1142,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 923a01d66c4618446abb082250646478, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+--- !u!1 &1162308125 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 145898, guid: f58a667c8217aaf42b28e20ef609767b,
+    type: 3}
+  m_PrefabInstance: {fileID: 1720632464}
+  m_PrefabAsset: {fileID: 0}
 --- !u!4 &1199551030 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 471364, guid: f58a667c8217aaf42b28e20ef609767b,
@@ -1154,6 +1160,68 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 1720632464}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1228498893
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1162308125}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2e9a0571a618b5d4680ffd26656dbde7, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  CycleOption: 0
+  LoopInitialMovementDirection: 0
+  PathElements: []
+  AlignmentMode: 0
+  MovementSpeed: 1
+  AccelerationType: 0
+  Acceleration:
+    serializedVersion: 2
+    m_Curve:
+    - serializedVersion: 3
+      time: 0
+      value: 1
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    - serializedVersion: 3
+      time: 1
+      value: 0
+      inSlope: 0
+      outSlope: 0
+      tangentMode: 0
+      weightedMode: 0
+      inWeight: 0
+      outWeight: 0
+    m_PreInfinity: 2
+    m_PostInfinity: 2
+    m_RotationOrder: 4
+  UpdateMode: 0
+  MinDistanceToGoal: 0.1
+  OnlyMovesWhenPlayerIsColliding: 0
+  OnlyMovesWhenCharacterIsColliding: 0
+  ResetPositionWhenPlayerRespawns: 0
+  ScriptActivated: 0
+  StartMovingWhenPlayerIsColliding: 0
+  ToggleButton: 0
+  ChangeDirectionButton: 0
+  ResetEndReachedButton: 0
+  MoveTowardsStartButton: 0
+  MoveTowardsEndButton: 0
+  PointReachedFeedback: {fileID: 0}
+  EndReachedFeedback: {fileID: 0}
+  OnCharacterEnter:
+    m_PersistentCalls:
+      m_Calls: []
+  OnCharacterExit:
+    m_PersistentCalls:
+      m_Calls: []
 --- !u!1001 &1249012446
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1764,7 +1832,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 145898, guid: f58a667c8217aaf42b28e20ef609767b, type: 3}
       propertyPath: m_Layer
-      value: 1
+      value: 8
       objectReference: {fileID: 0}
     - target: {fileID: 471364, guid: f58a667c8217aaf42b28e20ef609767b, type: 3}
       propertyPath: m_RootOrder
