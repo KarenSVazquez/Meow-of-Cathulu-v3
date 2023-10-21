@@ -3,7 +3,7 @@ guid: 9aa7249709763ea4c86134fef8dba5a5
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 25
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -63,13 +63,14 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -282,14 +283,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Cat-4-Walk_0: -2100683984
+      Cat-4-Walk_1: 620971343
+      Cat-4-Walk_2: 555452192
+      Cat-4-Walk_3: 66006688
       Cat-4-Walk_4: -2102496383
       Cat-4-Walk_5: -393431429
-      Cat-4-Walk_2: 555452192
       Cat-4-Walk_6: -1052112211
-      Cat-4-Walk_3: 66006688
-      Cat-4-Walk_0: -2100683984
       Cat-4-Walk_7: 759149157
-      Cat-4-Walk_1: 620971343
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

@@ -3,7 +3,7 @@ guid: 6e98cff7a344aae4bbd1892df8a10059
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 25
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -282,14 +283,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Cat-3-Laying_6: 1558819343
-      Cat-3-Laying_3: 127836623
-      Cat-3-Laying_2: -1196507446
       Cat-3-Laying_0: 62020125
-      Cat-3-Laying_7: -391436112
       Cat-3-Laying_1: -340463823
+      Cat-3-Laying_2: -1196507446
+      Cat-3-Laying_3: 127836623
       Cat-3-Laying_4: 709462171
       Cat-3-Laying_5: 2099145336
+      Cat-3-Laying_6: 1558819343
+      Cat-3-Laying_7: -391436112
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

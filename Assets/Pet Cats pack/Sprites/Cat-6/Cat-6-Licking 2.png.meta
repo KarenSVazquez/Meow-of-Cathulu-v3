@@ -3,7 +3,7 @@ guid: add15abfc309ef54a95af31a307ddb43
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 25
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -219,11 +220,11 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Cat-6-Licking 2_3: -2098766657
-      Cat-6-Licking 2_4: -355726333
+      Cat-6-Licking 2_0: -2056186460
       Cat-6-Licking 2_1: 1153932630
       Cat-6-Licking 2_2: 1730859349
-      Cat-6-Licking 2_0: -2056186460
+      Cat-6-Licking 2_3: -2098766657
+      Cat-6-Licking 2_4: -355726333
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

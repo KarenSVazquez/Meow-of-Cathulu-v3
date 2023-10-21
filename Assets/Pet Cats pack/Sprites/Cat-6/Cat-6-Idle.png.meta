@@ -3,7 +3,7 @@ guid: 18e6d971025d9054d8abb92dac9d0c13
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 25
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -324,16 +325,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Cat-6-Idle_3: 1263529980
-      Cat-6-Idle_7: -220965732
-      Cat-6-Idle_1: 357554607
-      Cat-6-Idle_8: -300686502
-      Cat-6-Idle_4: 1249789058
-      Cat-6-Idle_9: 1227703020
-      Cat-6-Idle_6: 687488154
       Cat-6-Idle_0: -926048052
-      Cat-6-Idle_5: 1119224293
+      Cat-6-Idle_1: 357554607
       Cat-6-Idle_2: -1869711824
+      Cat-6-Idle_3: 1263529980
+      Cat-6-Idle_4: 1249789058
+      Cat-6-Idle_5: 1119224293
+      Cat-6-Idle_6: 687488154
+      Cat-6-Idle_7: -220965732
+      Cat-6-Idle_8: -300686502
+      Cat-6-Idle_9: 1227703020
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

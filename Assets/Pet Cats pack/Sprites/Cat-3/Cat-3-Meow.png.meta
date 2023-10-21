@@ -3,7 +3,7 @@ guid: a2afc885a9327ea4abff70bb21660037
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 25
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -63,6 +63,7 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
@@ -198,9 +199,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Cat-3-Meow_2: 1112201983
-      Cat-3-Meow_1: 1921808273
       Cat-3-Meow_0: 615503473
+      Cat-3-Meow_1: 1921808273
+      Cat-3-Meow_2: 1112201983
       Cat-3-Meow_3: 796199882
   spritePackingTag: 
   pSDRemoveMatte: 0

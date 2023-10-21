@@ -3,7 +3,7 @@ guid: 7d8bc9ff9a3bd144190a6fe40660e03d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 25
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -63,13 +63,14 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -387,19 +388,19 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Cat-4-Stretching_1: -1741283065
-      Cat-4-Stretching_3: 1227852948
-      Cat-4-Stretching_11: 391081856
-      Cat-4-Stretching_9: 1012416600
-      Cat-4-Stretching_10: 166062292
-      Cat-4-Stretching_4: 738958318
-      Cat-4-Stretching_6: -1945196927
-      Cat-4-Stretching_5: -532080893
       Cat-4-Stretching_0: 653339395
-      Cat-4-Stretching_2: 778815612
-      Cat-4-Stretching_8: -874817913
+      Cat-4-Stretching_1: -1741283065
+      Cat-4-Stretching_10: 166062292
+      Cat-4-Stretching_11: 391081856
       Cat-4-Stretching_12: -2002189368
+      Cat-4-Stretching_2: 778815612
+      Cat-4-Stretching_3: 1227852948
+      Cat-4-Stretching_4: 738958318
+      Cat-4-Stretching_5: -532080893
+      Cat-4-Stretching_6: -1945196927
       Cat-4-Stretching_7: 502497084
+      Cat-4-Stretching_8: -874817913
+      Cat-4-Stretching_9: 1012416600
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

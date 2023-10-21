@@ -3,7 +3,7 @@ guid: 8f2930b670a6d6b429521a204bcb8679
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 25
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -63,13 +63,14 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -282,14 +283,14 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
+      Cat-5-Laying_0: -1601407852
+      Cat-5-Laying_1: -70754581
+      Cat-5-Laying_2: 1103184564
+      Cat-5-Laying_3: 1662347493
+      Cat-5-Laying_4: -265624052
+      Cat-5-Laying_5: -809259201
       Cat-5-Laying_6: -1029992499
       Cat-5-Laying_7: 1212719165
-      Cat-5-Laying_4: -265624052
-      Cat-5-Laying_2: 1103184564
-      Cat-5-Laying_5: -809259201
-      Cat-5-Laying_0: -1601407852
-      Cat-5-Laying_3: 1662347493
-      Cat-5-Laying_1: -70754581
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0

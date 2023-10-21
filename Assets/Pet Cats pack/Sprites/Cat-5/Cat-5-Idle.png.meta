@@ -3,7 +3,7 @@ guid: db733f50b3f2f334092e5efcc17b4916
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
-  serializedVersion: 11
+  serializedVersion: 12
   mipmaps:
     mipMapMode: 0
     enableMipMap: 0
@@ -47,7 +47,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 25
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -63,13 +63,14 @@ TextureImporter:
   textureFormatSet: 0
   ignorePngGamma: 0
   applyGammaDecoding: 0
+  cookieLightType: 1
   platformSettings:
   - serializedVersion: 3
     buildTarget: DefaultTexturePlatform
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -324,16 +325,16 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Cat-5-Idle_3: -412726645
       Cat-5-Idle_0: 1193388614
-      Cat-5-Idle_9: -1317211233
       Cat-5-Idle_1: -24402215
-      Cat-5-Idle_5: -1285301042
-      Cat-5-Idle_8: -1658242432
       Cat-5-Idle_2: 617854131
+      Cat-5-Idle_3: -412726645
+      Cat-5-Idle_4: -1863868894
+      Cat-5-Idle_5: -1285301042
       Cat-5-Idle_6: 1927417644
       Cat-5-Idle_7: -1785670642
-      Cat-5-Idle_4: -1863868894
+      Cat-5-Idle_8: -1658242432
+      Cat-5-Idle_9: -1317211233
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
