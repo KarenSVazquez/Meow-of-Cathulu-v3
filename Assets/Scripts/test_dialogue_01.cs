@@ -35,6 +35,7 @@ public class test_dialogue_01 : MonoBehaviour
             else
             {
                 if (currentIndex < dialogueImg.Length - 1)
+                    Debug.Log("entra for?");
                 {
                     currentIndex++;
                 }
