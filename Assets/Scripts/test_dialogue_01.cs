@@ -7,10 +7,12 @@ public class test_dialogue_01 : MonoBehaviour
     public SpriteRenderer dialogue;
     public Sprite[] dialogueImg;
     public bool firstTime;
+    private int currentIndex;
     // Start is called before the first frame update
     void Start()
     {
         firstTime = false;
+        currentIndex = 0;
 
 
     }
@@ -26,12 +28,17 @@ public class test_dialogue_01 : MonoBehaviour
         {
             if(firstTime == false)
             {
-                dialogue.sprite = dialogueImg[0];
+                currentIndex = 0;
+                dialogue.sprite = dialogueImg[currentIndex];
                 firstTime = true;
             }
             else
             {
-                dialogue.sprite = dialogueImg[1];
+                if (currentIndex < dialogueImg.Length - 1)
+                {
+                    currentIndex++;
+                }
+                dialogue.sprite = dialogueImg[currentIndex]; // hasta aca cierra en  1 , hacer for
             }
             
         }
