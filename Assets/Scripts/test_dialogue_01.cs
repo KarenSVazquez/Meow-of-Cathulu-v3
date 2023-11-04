@@ -8,6 +8,7 @@ public class test_dialogue_01 : MonoBehaviour
     public Sprite[] dialogueImg;
     public bool firstTime;
     private int currentIndex;
+    private float typingTime = 0.05f; //segundos
     // Start is called before the first frame update
     void Start()
     {
