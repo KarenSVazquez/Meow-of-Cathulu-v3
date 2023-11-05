@@ -1,5 +1,5 @@
 fileFormatVersion: 2
-guid: 433acc52061316849b9b878ae1480d9b
+guid: 4e8df08220356e24bbbd22e7edfef09d
 TextureImporter:
   internalIDToNameTable: []
   externalObjects: {}
@@ -119,8 +119,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 1b1788d3ea7ab654e9db951b1b4e7eeb
-      internalID: 1933440164
+      spriteID: 9e553900f7c74d748ae48d9f96acf8f0
+      internalID: -1064621717
       vertices: []
       indices: 
       edges: []
@@ -140,8 +140,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 85dae6ace5299a74ea293cce5e194693
-      internalID: 1381854117
+      spriteID: cf223da122006124f8dc4034507d0cec
+      internalID: -117641664
       vertices: []
       indices: 
       edges: []
@@ -161,8 +161,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: 0
       bones: []
-      spriteID: 599a83c87592b7f4fa64a21378868d00
-      internalID: 264903338
+      spriteID: 5b88c39351e2d2c4db3161da72d56838
+      internalID: 1114429810
       vertices: []
       indices: 
       edges: []
@@ -178,9 +178,9 @@ TextureImporter:
     weights: []
     secondaryTextures: []
     nameFileIdTable:
-      Cathulu-Wings_0: 1933440164
-      Cathulu-Wings_1: 1381854117
-      Cathulu-Wings_2: 264903338
+      Cathulu-Wings_0: -1064621717
+      Cathulu-Wings_1: -117641664
+      Cathulu-Wings_2: 1114429810
   spritePackingTag: 
   pSDRemoveMatte: 0
   pSDShowRemoveMatteOption: 0
