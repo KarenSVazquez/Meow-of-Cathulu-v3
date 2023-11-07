@@ -11,11 +11,13 @@ public class dialogue_cathulu : MonoBehaviour
     private float imageDisplayInterval = 5.0f; // 1 segundo
     private float timer = 0.0f;
     private bool displayingDialog = false;
+    public int catnipCount;
     // Start is called before the first frame update
 
 
     void Start()
     {
+        catnipCount = 0;
         firstTime = false;
         currentIndex = 0;
 
@@ -30,6 +32,14 @@ public class dialogue_cathulu : MonoBehaviour
         // cuando A sea mayor igual q 1 es false para q no vuelva a contar, luego se incrementa el indice de los dialogos
         // luego A queda en cero ,bool de conteo a cero
         // yield return new WaitForSeconds(typingTime);
+        /*
+         if (catnipCount >= 10 && currentIndex != 1)
+        {
+            currentIndex = 3;
+            dialogue.sprite = dialogueImg[currentIndex];
+            displayingDialog = true;
+        }
+         */
         if (displayingDialog)
         {
             if (timer > 0.0f)
@@ -77,6 +87,22 @@ public class dialogue_cathulu : MonoBehaviour
             dialogue.sprite = null;
             displayingDialog = false;
         }
+    }
+
+    private void CheckAndShowTreatImage()
+    {
+        if (catnipCount >= 10 && currentIndex != 1)
+        {
+            currentIndex = 1;
+            dialogue.sprite = dialogueImg[currentIndex];
+            displayingDialog = true;
+        }
+    }
+
+    public void CollectCatnips(int amount)
+    {
+        catnipCount += amount; //  contador de catnips
+        CheckAndShowTreatImage();
     }
 }
  
