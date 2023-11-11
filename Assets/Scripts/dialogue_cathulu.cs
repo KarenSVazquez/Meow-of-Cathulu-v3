@@ -6,12 +6,17 @@ public class dialogue_cathulu : MonoBehaviour
 {
     public SpriteRenderer dialogue;
     public Sprite[] dialogueImg;
+    public Sprite successImage;
+    public Sprite notEnoughCatnipsImg;
     public bool firstTime;
     private int currentIndex;
     private float imageDisplayInterval = 5.0f; // 1 segundo
     private float timer = 0.0f;
     private bool displayingDialog = false;
     public int catnipCount;
+    public int catnipsRequired = 7;
+    private int catnipsGiven = 0;
+    
     // Start is called before the first frame update
 
 
@@ -78,6 +83,17 @@ public class dialogue_cathulu : MonoBehaviour
                 timer = imageDisplayInterval;
             }
 
+            if (catnipsGiven >= catnipsRequired)
+            {
+                dialogue.sprite = successImage;
+                displayingDialog = true;
+            }
+            else
+            {
+                dialogue.sprite = notEnoughCatnipsImg;
+                Debug.Log("Necesito " + catnipsRequired + " catnips");
+            }
+
         }
     }
     private void OnTriggerExit2D(Collider2D collision)
@@ -101,6 +117,7 @@ public class dialogue_cathulu : MonoBehaviour
 
     public void CollectCatnips(int amount)
     {
+        Debug.Log("catnipCount??");
         catnipCount += amount; //  contador de catnips
         CheckAndShowTreatImage();
     }
