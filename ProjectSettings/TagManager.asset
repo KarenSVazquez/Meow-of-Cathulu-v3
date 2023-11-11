@@ -8,6 +8,8 @@ TagManager:
   - Music
   - Background
   - NoMask
+  - CatnipCounter
+  - CatnipCounterCanvas
   layers:
   - Default
   - TransparentFX
