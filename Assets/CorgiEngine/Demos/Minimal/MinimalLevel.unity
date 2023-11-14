@@ -72459,7 +72459,7 @@ PrefabInstance:
         type: 3}
       propertyPath: sadFaceSprite
       value: 
-      objectReference: {fileID: 21300000, guid: bbd51dfad152b90498ed0803c8f24578,
+      objectReference: {fileID: 21300000, guid: 99758dd272b96454a95b717881a34aaf,
         type: 3}
     - target: {fileID: 7796695717860123946, guid: 7c11477ffe0fa05488354c8b532afaa6,
         type: 3}
