@@ -32,8 +32,10 @@ public class NPCCatnipsNeeded : MonoBehaviour
         if (other.tag == "Player" && (catnipCounter >= requiredCatnip))
         {
             catnipCounter = catnipCounter - requiredCatnip;
+            GameObject.FindWithTag("CatnipCounter").GetComponent<CatnipCounter>().catnipCount = catnipCounter;
             Debug.Log("catnipCounter" + catnipCounter);
             catnipImage.sprite = happyFaceSprite;
+
             Invoke("DestroyNPC", destroyDelay);
         }
         else
