@@ -34,4 +34,3 @@ public class CatnipPickUp : MonoBehaviour
         thePlayer.GetComponent<CatnipCounter>().AddOneCatnip();
     }*/
 }
-

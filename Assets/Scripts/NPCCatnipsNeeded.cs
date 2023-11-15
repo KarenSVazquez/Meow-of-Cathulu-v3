@@ -9,6 +9,10 @@ public class NPCCatnipsNeeded : MonoBehaviour
     public int catnipCounter;
     public Text catnipCounterCanvas;
     public BoxCollider2D theBC;
+    public SpriteRenderer catnipImage;
+    public Sprite happyFaceSprite;
+    public Sprite sadFaceSprite;
+    public float destroyDelay = 1.0f;
     // Start is called before the first frame update
     void Start()
     {
@@ -30,11 +34,18 @@ public class NPCCatnipsNeeded : MonoBehaviour
             catnipCounter = catnipCounter - requiredCatnip;
             GameObject.FindWithTag("CatnipCounter").GetComponent<CatnipCounter>().catnipCount = catnipCounter;
             Debug.Log("catnipCounter" + catnipCounter);
-            Destroy(gameObject);
+            catnipImage.sprite = happyFaceSprite;
+
+            Invoke("DestroyNPC", destroyDelay);
         }
         else
         {
-            // Carita Triste
+            catnipImage.sprite = sadFaceSprite;
         }
+    }
+
+    void DestroyNPC()
+    {
+        Destroy(gameObject);
     }
 }
