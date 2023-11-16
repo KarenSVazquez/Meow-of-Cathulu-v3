@@ -159,7 +159,7 @@ PlayerSettings:
   applicationIdentifier:
     Standalone: com.Cursed-Games-Studios.Meow-of-Cathulu
   buildNumber:
-    Standalone: 0.0.1
+    Standalone: 0.1.1
     iPhone: 0
     tvOS: 0
   overrideDefaultApplicationIdentifier: 1
