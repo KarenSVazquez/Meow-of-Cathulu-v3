@@ -135,8 +135,8 @@ LineRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.09524367
-        value: 0.9736165
+        time: 0.15733168
+        value: 0.7883023
         inSlope: 0.21670774
         outSlope: 0.21670774
         tangentMode: 0
@@ -231,7 +231,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c15386207270804aabdd488359f8023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  length: 50
+  length: 15
   lineRend: {fileID: 642909681756184777}
   segmentPoses: []
   segmentV: []
@@ -506,8 +506,8 @@ LineRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.09524367
-        value: 0.9736165
+        time: 0.15733168
+        value: 0.7883023
         inSlope: 0.21670774
         outSlope: 0.21670774
         tangentMode: 0
@@ -602,7 +602,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c15386207270804aabdd488359f8023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  length: 50
+  length: 15
   lineRend: {fileID: 642909682155496088}
   segmentPoses: []
   segmentV: []
@@ -877,8 +877,8 @@ LineRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.09524367
-        value: 0.9736165
+        time: 0.15733168
+        value: 0.7883023
         inSlope: 0.21670774
         outSlope: 0.21670774
         tangentMode: 0
@@ -973,7 +973,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c15386207270804aabdd488359f8023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  length: 50
+  length: 15
   lineRend: {fileID: 642909682366955842}
   segmentPoses: []
   segmentV: []
@@ -1213,8 +1213,8 @@ LineRenderer:
         inWeight: 0.33333334
         outWeight: 0.33333334
       - serializedVersion: 3
-        time: 0.09524367
-        value: 0.9736165
+        time: 0.15733168
+        value: 0.7883023
         inSlope: 0.21670774
         outSlope: 0.21670774
         tangentMode: 0
@@ -1309,7 +1309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8c15386207270804aabdd488359f8023, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  length: 50
+  length: 15
   lineRend: {fileID: 642909682990786405}
   segmentPoses: []
   segmentV: []
