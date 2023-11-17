@@ -48,13 +48,13 @@ public class NPCCatnipsNeeded : MonoBehaviour
 
     void DestroyNPC()
     {
-        catCounting.CatNumber += 1; // cada vez que se destuya suma 1 
+        catCounting.CatNumber += 1; // cada vez que se destruya suma 1 
         for (int i = 0; i < dialogueImages.Length; i++)
         {
-            catCounting.dialgueImages[i] = dialogueImages[i];
+            catCounting.dialgueImages[i] = dialogueImages[i]; // Rompe al agreqar las img 16/11
         }
         catCounting.IsCathuluVisible = true;
-        catCounting.NPCPosition = this.gameObject.transform.position; // guarda la posicoon del npc
+        catCounting.NPCPosition = this.gameObject.transform.position; // guarda la posicion del npc
         Destroy(gameObject);
     }
 }
