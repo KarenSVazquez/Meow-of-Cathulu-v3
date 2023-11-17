@@ -10,6 +10,7 @@ public class NPCCatnipsNeeded : MonoBehaviour
     public SpriteRenderer catnipImage;
     public Sprite happyFaceSprite;
     public Sprite sadFaceSprite;
+    public Sprite givemeCatnip;
     public float destroyDelay = 1.0f;
     public SO_CatCounting catCounting;
     public Sprite[] dialogueImages;
@@ -22,10 +23,12 @@ public class NPCCatnipsNeeded : MonoBehaviour
     {
         if (!catnipSubtracted && other.tag == "Player")
         {
+            //catnipImage.sprite = givemeCatnip;
             CatnipCounter catnipCounterScript = GameObject.FindWithTag("CatnipCounter").GetComponent<CatnipCounter>();
 
             if (catnipCounterScript != null && catnipCounterScript.HasEnoughCatnips(requiredCatnip) && _satisfied == false)
             {
+
 
                 catnipCounterScript.SubtractCatnips(requiredCatnip);
                 requiredCatnip = 0;

@@ -750,8 +750,8 @@ MonoBehaviour:
   speed: 0.5
   minY: -3
   minX: -1
-  maxY: -3
-  maxX: -1
+  maxY: 0.5
+  maxX: 0.5
   waitingTime: 0
 --- !u!95 &642909682292104114
 Animator:
