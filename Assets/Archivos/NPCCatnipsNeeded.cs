@@ -51,7 +51,7 @@ public class NPCCatnipsNeeded : MonoBehaviour
         catCounting.CatNumber += 1; // cada vez que se destuya suma 1 
         for (int i = 0; i < dialogueImages.Length; i++)
         {
-            catCounting.dialgueImages[i] = dialogueImages[i];
+            catCounting.dialogueImages[i] = dialogueImages[i];
         }
         catCounting.IsCathuluVisible = true;
         catCounting.NPCPosition = this.gameObject.transform.position; // guarda la posicoon del npc
