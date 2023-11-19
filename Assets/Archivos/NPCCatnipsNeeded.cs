@@ -20,31 +20,52 @@ public class NPCCatnipsNeeded : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!catnipSubtracted && other.tag == "Player")
         {
-            CatnipCounter catnipCounterScript = GameObject.FindWithTag("CatnipCounter").GetComponent<CatnipCounter>();
-
-            if (catnipCounterScript != null && catnipCounterScript.HasEnoughCatnips(requiredCatnip) && _satisfied == false)
+            if (!catnipSubtracted && other.tag == "Player")
             {
+                CatnipCounter catnipCounterScript = GameObject.FindWithTag("CatnipCounter").GetComponent<CatnipCounter>();
 
-                catnipCounterScript.SubtractCatnips(requiredCatnip);
-                requiredCatnip = 0;
-                _satisfied = true;
+                if (catnipCounterScript != null && catnipCounterScript.HasEnoughCatnips(requiredCatnip) && _satisfied == false)
+                {
 
-                catnipImage.sprite = happyFaceSprite;
+                    catnipCounterScript.SubtractCatnips(requiredCatnip);
+                    requiredCatnip = 0;
+                    _satisfied = true;
 
-                Invoke("DestroyNPC", destroyDelay);
+                    catnipImage.sprite = happyFaceSprite;
 
-              
-                catnipSubtracted = true;
-            }
-            else
-            {
-        
-                catnipImage.sprite = sadFaceSprite;
+                    Invoke("DestroyNPC", destroyDelay);
+
+
+                    catnipSubtracted = true;
+                }
+                else
+                {
+
+                    catnipImage.sprite = sadFaceSprite;
+                }
             }
         }
     }
+    
+    void DestroyNPC()
+    {
+        catCounting.CatNumber += 1; // cada vez que se destruye, suma 1 
+
+        int length = Mathf.Min(dialogueImages.Length, catCounting.dialogueImages.Length);
+
+        for (int i = 0; i < length; i++)
+        {
+            catCounting.dialogueImages[i] = dialogueImages[i];
+        }
+
+        catCounting.IsCathuluVisible = true;
+        catCounting.NPCPosition = transform.position; // guarda la posición del NPC
+        Destroy(gameObject);
+    }
+
+    /*
+   
 
     void DestroyNPC()
     {
@@ -57,4 +78,5 @@ public class NPCCatnipsNeeded : MonoBehaviour
         catCounting.NPCPosition = this.gameObject.transform.position; // guarda la posicoon del npc
         Destroy(gameObject);
     }
+     */
 }

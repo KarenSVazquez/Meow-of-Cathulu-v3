@@ -29361,7 +29361,8 @@ MonoBehaviour:
   catCounting: {fileID: 11400000, guid: 4660c441abb829c409e485b3e9fd841a, type: 2}
   CathuluPrefab: {fileID: 642909682292104118, guid: 73bf4d1ee9d9be44299dfda35a0d7275,
     type: 3}
-  dialgueImages: []
+  dialogueImages: []
+  imageTime: 1
 --- !u!212 &612168133
 SpriteRenderer:
   m_ObjectHideFlags: 0
@@ -72300,17 +72301,29 @@ PrefabInstance:
         type: 3}
     - target: {fileID: 7796695717860123946, guid: 7c11477ffe0fa05488354c8b532afaa6,
         type: 3}
+      propertyPath: requiredCatnipImg
+      value: 
+      objectReference: {fileID: 21300000, guid: 45438a3fd6a9b9d4da34d203bdc2d857,
+        type: 3}
+    - target: {fileID: 7796695717860123946, guid: 7c11477ffe0fa05488354c8b532afaa6,
+        type: 3}
       propertyPath: catnipCounterCanvas
       value: 
       objectReference: {fileID: 1602566018}
     - target: {fileID: 7796695717860123946, guid: 7c11477ffe0fa05488354c8b532afaa6,
         type: 3}
       propertyPath: dialogueImages.Array.size
-      value: 1
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 7796695717860123946, guid: 7c11477ffe0fa05488354c8b532afaa6,
         type: 3}
       propertyPath: dialogueImages.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 08b98a6aa4f7c85468917d69d3738d7b,
+        type: 3}
+    - target: {fileID: 7796695717860123946, guid: 7c11477ffe0fa05488354c8b532afaa6,
+        type: 3}
+      propertyPath: dialogueImages.Array.data[1]
       value: 
       objectReference: {fileID: 21300000, guid: 08b98a6aa4f7c85468917d69d3738d7b,
         type: 3}

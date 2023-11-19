@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f98859ce9cd594a94b989083d64f80, type: 3}
   m_Name: CatCounter
   m_EditorClassIdentifier: 
-  CatNumber: 0
+  CatNumber: 2
   CatGoal: 0
-  dialgueImages: []
+  dialogueImages: []
   IsCathuluVisible: 0
   NPCPosition: {x: -18.85, y: -1.38, z: 0}
