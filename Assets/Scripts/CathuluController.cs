@@ -15,12 +15,14 @@ public class CathuluController : MonoBehaviour
     {
         // for recorrer el 
         cathuluSpriteRenderer = GetComponent<SpriteRenderer>();
-       // dialogueImages = new Sprite[catCounting.dialogueImages.Length];
-        for (int i = 0; i < catCounting.dialogueImages.Length; i++)
-        {
-            dialogueImages[i] = catCounting.dialogueImages[i];
+        /*
+                 dialogueImages = new Sprite[catCounting.dialogueImages.Length];
+                for (int i = 0; i < catCounting.dialogueImages.Length; i++)
+                {
+                    dialogueImages[i] = catCounting.dialogueImages[i];
 
-        }
+                }
+         */
     }
 
     // Update is called once per frame
