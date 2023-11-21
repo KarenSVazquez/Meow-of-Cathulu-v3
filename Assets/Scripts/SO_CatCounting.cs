@@ -7,7 +7,7 @@ public class SO_CatCounting : ScriptableObject
 {
     public int CatNumber;
     public int CatGoal;
-    public Sprite[] dialgueImages; // todos los npc van a tener la misma xcantidad de img
+    public Sprite[] dialogueImages; // todos los npc van a tener la misma xcantidad de img
     public bool IsCathuluVisible;
     public Vector3 NPCPosition;
 

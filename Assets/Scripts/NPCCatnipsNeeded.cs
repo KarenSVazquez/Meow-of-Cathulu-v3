@@ -10,7 +10,6 @@ public class NPCCatnipsNeeded : MonoBehaviour
     public SpriteRenderer catnipImage;
     public Sprite happyFaceSprite;
     public Sprite sadFaceSprite;
-    public Sprite givemeCatnip;
     public float destroyDelay = 1.0f;
     public SO_CatCounting catCounting;
     public Sprite[] dialogueImages;
@@ -21,43 +20,63 @@ public class NPCCatnipsNeeded : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!catnipSubtracted && other.tag == "Player")
         {
-            //catnipImage.sprite = givemeCatnip;
-            CatnipCounter catnipCounterScript = GameObject.FindWithTag("CatnipCounter").GetComponent<CatnipCounter>();
-
-            if (catnipCounterScript != null && catnipCounterScript.HasEnoughCatnips(requiredCatnip) && _satisfied == false)
+            if (!catnipSubtracted && other.tag == "Player")
             {
+                CatnipCounter catnipCounterScript = GameObject.FindWithTag("CatnipCounter").GetComponent<CatnipCounter>();
+
+                if (catnipCounterScript != null && catnipCounterScript.HasEnoughCatnips(requiredCatnip) && _satisfied == false)
+                {
+
+                    catnipCounterScript.SubtractCatnips(requiredCatnip);
+                    requiredCatnip = 0;
+                    _satisfied = true;
+
+                    catnipImage.sprite = happyFaceSprite;
+
+                    Invoke("DestroyNPC", destroyDelay);
 
 
-                catnipCounterScript.SubtractCatnips(requiredCatnip);
-                requiredCatnip = 0;
-                _satisfied = true;
+                    catnipSubtracted = true;
+                }
+                else
+                {
 
-                catnipImage.sprite = happyFaceSprite;
-
-                Invoke("DestroyNPC", destroyDelay);
-
-
-                catnipSubtracted = true;
-            }
-            else
-            {
-
-                catnipImage.sprite = sadFaceSprite;
+                    catnipImage.sprite = sadFaceSprite;
+                }
             }
         }
     }
 
     void DestroyNPC()
     {
-        catCounting.CatNumber += 1; // cada vez que se destruya suma 1 
-        for (int i = 0; i < dialogueImages.Length; i++)
+        catCounting.CatNumber += 1; // cada vez que se destruye, suma 1 
+
+        int length = Mathf.Min(dialogueImages.Length, catCounting.dialogueImages.Length);
+
+        for (int i = 0; i < length; i++)
         {
-            catCounting.dialgueImages[i] = dialogueImages[i]; // Rompe al agreqar las img 16/11
+            catCounting.dialogueImages[i] = dialogueImages[i];
         }
+
         catCounting.IsCathuluVisible = true;
-        catCounting.NPCPosition = this.gameObject.transform.position; // guarda la posicion del npc
+        catCounting.NPCPosition = transform.position; // guarda la posición del NPC
         Destroy(gameObject);
     }
+
+    /*
+   
+
+    void DestroyNPC()
+    {
+        catCounting.CatNumber += 1; // cada vez que se destuya suma 1 
+        for (int i = 0; i < dialogueImages.Length; i++)
+        {
+            catCounting.dialogueImages[i] = dialogueImages[i];
+        }
+        catCounting.IsCathuluVisible = true;
+        catCounting.NPCPosition = this.gameObject.transform.position; // guarda la posicoon del npc
+        Destroy(gameObject);
+    }
+     */
 }

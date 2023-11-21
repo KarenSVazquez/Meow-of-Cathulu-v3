@@ -1,3 +1,4 @@
+//Movement
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -19,10 +20,7 @@ public class Movement : MonoBehaviour
     {
         _initialPosition = transform.position;
         minY = _initialPosition.y;
-        minX = _initialPosition.x;
-        maxY = _initialPosition.y + maxY;
-        maxX = _initialPosition.x + maxX;
-
+        //maxY=minY+0.08f;
         UpdateTarget();
         StartCoroutine("Floating");
     }
