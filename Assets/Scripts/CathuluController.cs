@@ -30,8 +30,6 @@ public class CathuluController : MonoBehaviour
     void Update()
     {
         cathuluSpriteRenderer = GetComponent<SpriteRenderer>();
-        //  dialogueImages = new Sprite[catCounting.dialogueImages.Length];
-        // hay x cada cantidad de npc aparece cathulue etc
         if (catCounting.IsCathuluVisible == true)
         {
             // aparece cathulu + muestra img luego termina en false
