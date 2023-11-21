@@ -36,13 +36,20 @@ public class CathuluController : MonoBehaviour
         {
             // aparece cathulu + muestra img luego termina en false
 
-            Instantiate(CathuluPrefab, catCounting.NPCPosition, Quaternion.identity);
-            ShowDialogueImage();
+            GameObject cathuluInstance =  Instantiate(CathuluPrefab, catCounting.NPCPosition, Quaternion.identity);
+            // ShowDialogueImage();
             catCounting.IsCathuluVisible = false;
+            StartCoroutine(DestroyCathuluAfterDelay(cathuluInstance, 5f));
         }
         Debug.Log("Longitud de catCounting.dialogueImages: " + catCounting.dialogueImages.Length);
     }
+    IEnumerator DestroyCathuluAfterDelay(GameObject cathuluInstance, float delay)
+    {
+        yield return new WaitForSeconds(delay);
 
+        // Destruye cathuluInstance después del tiempo de espera
+        Destroy(cathuluInstance);
+    }
     // los npc van a tener las img que se guardan desde el obj counteing cat y este guarda las img que va a estar con cahtulu
     void ShowDialogueImage()
     {
@@ -60,7 +67,7 @@ public class CathuluController : MonoBehaviour
                 }
                 */
                 cathuluSpriteRenderer.sprite = dialogueImages[i];
-                Invoke("DestroyNPC", i * imageTime);
+                //Invoke("DestroyNPC", i * imageTime);
             }
         }
         else
