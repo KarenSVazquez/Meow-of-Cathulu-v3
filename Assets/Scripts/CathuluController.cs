@@ -52,11 +52,15 @@ public class CathuluController : MonoBehaviour
             for (int i = 0; i < dialogueImages.Length; i++)
             {
                 // Asegúrate de que el índice sea válido
+                /*
                 if (i < dialogueImages.Length)
                 {
                     cathuluSpriteRenderer.sprite = dialogueImages[i];
                     Invoke("DestroyNPC", i * imageTime);
                 }
+                */
+                cathuluSpriteRenderer.sprite = dialogueImages[i];
+                Invoke("DestroyNPC", i * imageTime);
             }
         }
         else
