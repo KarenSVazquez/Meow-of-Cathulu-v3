@@ -47,7 +47,7 @@ public class NPCCatnipsNeeded : MonoBehaviour
             }
         }
     }
-    
+
     void DestroyNPC()
     {
         catCounting.CatNumber += 1; // cada vez que se destruye, suma 1 

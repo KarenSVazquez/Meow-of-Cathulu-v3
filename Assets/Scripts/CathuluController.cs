@@ -1,3 +1,4 @@
+// CathuluController
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -9,9 +10,9 @@ public class CathuluController : MonoBehaviour
     public Sprite[] dialogueImages;
     private SpriteRenderer cathuluSpriteRenderer;
     public float imageTime = 1.0f;
-      // cada que se cumpla la condicion de num de pcn - aparece cathulu
-      // Start is called before the first frame update
-      void Awake()
+    // cada que se cumpla la condicion de num de pcn - aparece cathulu
+    // Start is called before the first frame update
+    void Awake()
     {
         // for recorrer el 
         cathuluSpriteRenderer = GetComponent<SpriteRenderer>();
@@ -29,19 +30,24 @@ public class CathuluController : MonoBehaviour
     void Update()
     {
         cathuluSpriteRenderer = GetComponent<SpriteRenderer>();
-      //  dialogueImages = new Sprite[catCounting.dialogueImages.Length];
-        // hay x cada cantidad de npc aparece cathulue etc
         if (catCounting.IsCathuluVisible == true)
         {
             // aparece cathulu + muestra img luego termina en false
-            
-            Instantiate(CathuluPrefab, catCounting.NPCPosition, Quaternion.identity);
-            ShowDialogueImage();
+
+            GameObject cathuluInstance = Instantiate(CathuluPrefab, catCounting.NPCPosition, Quaternion.identity);
+            // ShowDialogueImage();
             catCounting.IsCathuluVisible = false;
+            StartCoroutine(DestroyCathuluAfterDelay(cathuluInstance, 5f));
         }
         Debug.Log("Longitud de catCounting.dialogueImages: " + catCounting.dialogueImages.Length);
     }
+    IEnumerator DestroyCathuluAfterDelay(GameObject cathuluInstance, float delay)
+    {
+        yield return new WaitForSeconds(delay);
 
+        // Destruye cathuluInstance después del tiempo de espera
+        Destroy(cathuluInstance);
+    }
     // los npc van a tener las img que se guardan desde el obj counteing cat y este guarda las img que va a estar con cahtulu
     void ShowDialogueImage()
     {
@@ -51,16 +57,20 @@ public class CathuluController : MonoBehaviour
             for (int i = 0; i < dialogueImages.Length; i++)
             {
                 // Asegúrate de que el índice sea válido
+                /*
                 if (i < dialogueImages.Length)
                 {
                     cathuluSpriteRenderer.sprite = dialogueImages[i];
                     Invoke("DestroyNPC", i * imageTime);
                 }
+                */
+                cathuluSpriteRenderer.sprite = dialogueImages[i];
+                //Invoke("DestroyNPC", i * imageTime);
             }
         }
         else
         {
-            Debug.LogError("El array dialogueImages está vacío o nulo. Asegúrate de que tenga elementos.");
+            Debug.LogError("asd array???.");
         }
     }
 
