@@ -13,6 +13,7 @@ public class NPCCatnipsNeeded : MonoBehaviour
     public float destroyDelay = 1.0f;
     public SO_CatCounting catCounting;
     public Sprite[] dialogueImages;
+    public bool canInteract = false;
 
 
     // Variable para realizar el seguimiento de si ya se restó una vez
@@ -20,32 +21,15 @@ public class NPCCatnipsNeeded : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        {
-            if (!catnipSubtracted && other.tag == "Player")
-            {
-                CatnipCounter catnipCounterScript = GameObject.FindWithTag("CatnipCounter").GetComponent<CatnipCounter>();
+        catnipImage.sprite = sadFaceSprite;
+        canInteract = true;
+    }
 
-                if (catnipCounterScript != null && catnipCounterScript.HasEnoughCatnips(requiredCatnip) && _satisfied == false)
-                {
+    void OnTriggerExit2D(Collider2D other)
+    {
+        catnipImage.sprite = null;
+        canInteract = false;
 
-                    catnipCounterScript.SubtractCatnips(requiredCatnip);
-                    requiredCatnip = 0;
-                    _satisfied = true;
-
-                    catnipImage.sprite = happyFaceSprite;
-
-                    Invoke("DestroyNPC", destroyDelay);
-
-
-                    catnipSubtracted = true;
-                }
-                else
-                {
-
-                    catnipImage.sprite = sadFaceSprite;
-                }
-            }
-        }
     }
 
     void DestroyNPC()
@@ -64,19 +48,21 @@ public class NPCCatnipsNeeded : MonoBehaviour
         Destroy(gameObject);
     }
 
-    /*
-   
-
-    void DestroyNPC()
+    private void Update()
     {
-        catCounting.CatNumber += 1; // cada vez que se destuya suma 1 
-        for (int i = 0; i < dialogueImages.Length; i++)
+        CatnipCounter catnipCounterScript = GameObject.FindWithTag("CatnipCounter").GetComponent<CatnipCounter>();
+        if (canInteract && Input.GetButtonDown("Activate") && !catnipSubtracted)
         {
-            catCounting.dialogueImages[i] = dialogueImages[i];
+            if (catnipCounterScript != null && catnipCounterScript.HasEnoughCatnips(requiredCatnip) && _satisfied == false)
+            {
+                catnipSubtracted = true;
+                catnipCounterScript.SubtractCatnips(requiredCatnip);
+                requiredCatnip = 0;
+                _satisfied = true;
+                Invoke("DestroyNPC", destroyDelay);
+               
+            }
         }
-        catCounting.IsCathuluVisible = true;
-        catCounting.NPCPosition = this.gameObject.transform.position; // guarda la posicoon del npc
-        Destroy(gameObject);
+
     }
-     */
 }
