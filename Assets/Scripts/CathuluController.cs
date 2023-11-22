@@ -34,7 +34,7 @@ public class CathuluController : MonoBehaviour
         {
             // aparece cathulu + muestra img luego termina en false
 
-            GameObject cathuluInstance =  Instantiate(CathuluPrefab, catCounting.NPCPosition, Quaternion.identity);
+            GameObject cathuluInstance = Instantiate(CathuluPrefab, catCounting.NPCPosition, Quaternion.identity);
             // ShowDialogueImage();
             catCounting.IsCathuluVisible = false;
             StartCoroutine(DestroyCathuluAfterDelay(cathuluInstance, 5f));
