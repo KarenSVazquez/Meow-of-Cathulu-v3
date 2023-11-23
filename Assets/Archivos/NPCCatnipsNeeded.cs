@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
+
 
 public class NPCCatnipsNeeded : MonoBehaviour
 {
@@ -34,9 +36,9 @@ public class NPCCatnipsNeeded : MonoBehaviour
 
                     catnipImage.sprite = happyFaceSprite;
                     Invoke("DestroyNPC", destroyDelay);
-                    Debug.Log("Antes de DesactivarImagenesNPCSouls");
+                    Debug.Log("Antes ");
                     DesactivarImagenesNPCSouls();
-                    Debug.Log("Después de DesactivarImagenesNPCSouls");
+                    Debug.Log("Después ");
 
 
                     catnipSubtracted = true;
@@ -52,26 +54,30 @@ public class NPCCatnipsNeeded : MonoBehaviour
     void DesactivarImagenesNPCSouls()
     {
         GameObject[] npcSouls = GameObject.FindGameObjectsWithTag("npcSouls");
-        Debug.Log("Número de NPC Souls: " + npcSouls.Length);
-
 
         foreach (GameObject npcSoul in npcSouls)
         {
-            // Desactivar la imagen (o cualquier componente que necesites desactivar)
-            // Puedes adaptar esto según la estructura de tus objetos
-            Renderer visualComponent = npcSoul.GetComponent<Renderer>();
-            if (visualComponent != null)
+            // Desactivar el componente Image (si existe)
+            Image imageComponent = npcSoul.GetComponent<Image>();
+
+            if (imageComponent != null)
             {
-                visualComponent.enabled = false;
+                imageComponent.enabled = false;
             }
-            else
+
+            // Desactivar el componente MeshRenderer (si existe)
+            MeshRenderer meshRendererComponent = npcSoul.GetComponent<MeshRenderer>();
+
+            if (meshRendererComponent != null)
             {
-                // Si no estás usando SpriteRenderer, desactiva el componente que corresponda
-                // Ejemplo: npcSoul.GetComponent<Image>().enabled = false;
-              //  npcSoul.GetComponent<Image>().enabled = false;
+                meshRendererComponent.enabled = false;
             }
+
+            // Desactivar el objeto completo
+            npcSoul.SetActive(false);
         }
     }
+
 
 
     void DestroyNPC()
