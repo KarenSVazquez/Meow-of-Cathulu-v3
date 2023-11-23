@@ -33,8 +33,10 @@ public class NPCCatnipsNeeded : MonoBehaviour
                     _satisfied = true;
 
                     catnipImage.sprite = happyFaceSprite;
-
                     Invoke("DestroyNPC", destroyDelay);
+                    Debug.Log("Antes de DesactivarImagenesNPCSouls");
+                    DesactivarImagenesNPCSouls();
+                    Debug.Log("Después de DesactivarImagenesNPCSouls");
 
 
                     catnipSubtracted = true;
@@ -47,6 +49,30 @@ public class NPCCatnipsNeeded : MonoBehaviour
             }
         }
     }
+    void DesactivarImagenesNPCSouls()
+    {
+        GameObject[] npcSouls = GameObject.FindGameObjectsWithTag("npcSouls");
+        Debug.Log("Número de NPC Souls: " + npcSouls.Length);
+
+
+        foreach (GameObject npcSoul in npcSouls)
+        {
+            // Desactivar la imagen (o cualquier componente que necesites desactivar)
+            // Puedes adaptar esto según la estructura de tus objetos
+            Renderer visualComponent = npcSoul.GetComponent<Renderer>();
+            if (visualComponent != null)
+            {
+                visualComponent.enabled = false;
+            }
+            else
+            {
+                // Si no estás usando SpriteRenderer, desactiva el componente que corresponda
+                // Ejemplo: npcSoul.GetComponent<Image>().enabled = false;
+              //  npcSoul.GetComponent<Image>().enabled = false;
+            }
+        }
+    }
+
 
     void DestroyNPC()
     {
