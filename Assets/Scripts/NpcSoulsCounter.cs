@@ -2,17 +2,33 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class NpcSoulsCounter : MonoBehaviour
+public class NPCManager : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+  
+    public GameObject currentNPC;
+
+    void ObtenerNPC()
     {
-        
+        DesactivarImagenesNPCSouls();
     }
 
-    // Update is called once per frame
-    void Update()
+    void DesactivarImagenesNPCSouls()
     {
-        
+        GameObject[] npcSouls = GameObject.FindGameObjectsWithTag("npcSouls");
+
+        foreach (GameObject npcSoul in npcSouls)
+        {
+          
+            SpriteRenderer spriteRenderer = npcSoul.GetComponent<SpriteRenderer>();
+
+            if (spriteRenderer != null)
+            {
+                spriteRenderer.enabled = false;
+            }
+            else
+            {
+                
+            }
+        }
     }
 }

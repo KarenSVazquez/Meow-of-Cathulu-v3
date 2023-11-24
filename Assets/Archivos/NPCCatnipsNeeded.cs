@@ -1,9 +1,7 @@
-// Script NPCCatnipsNeeded
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
-
 
 public class NPCCatnipsNeeded : MonoBehaviour
 {
@@ -16,65 +14,84 @@ public class NPCCatnipsNeeded : MonoBehaviour
     public SO_CatCounting catCounting;
     public Sprite[] dialogueImages;
 
+    // Datos específicos del NPC
+    public string npcName;
+    public int catnipsNeeded;
 
     // Variable para realizar el seguimiento de si ya se restó una vez
     private bool catnipSubtracted = false;
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        if (!catnipSubtracted && other.tag == "Player")
         {
-            if (!catnipSubtracted && other.tag == "Player")
+            CatnipCounter catnipCounterScript = GameObject.FindWithTag("CatnipCounter").GetComponent<CatnipCounter>();
+
+            if (catnipCounterScript != null && catnipCounterScript.HasEnoughCatnips(requiredCatnip) && _satisfied == false)
             {
-                CatnipCounter catnipCounterScript = GameObject.FindWithTag("CatnipCounter").GetComponent<CatnipCounter>();
+                catnipCounterScript.SubtractCatnips(requiredCatnip);
+                requiredCatnip = 0;
+                _satisfied = true;
 
-                if (catnipCounterScript != null && catnipCounterScript.HasEnoughCatnips(requiredCatnip) && _satisfied == false)
-                {
+                catnipImage.sprite = happyFaceSprite;
+                Invoke("DestroyNPC", destroyDelay);
+                Debug.Log("Antes ");
 
-                    catnipCounterScript.SubtractCatnips(requiredCatnip);
-                    requiredCatnip = 0;
-                    _satisfied = true;
+                // Accede a los datos específicos del NPC directamente aquí
+                Debug.Log("Nombre del NPC: " + npcName);
+                Debug.Log("Catnips necesarios: " + catnipsNeeded);
 
-                    catnipImage.sprite = happyFaceSprite;
-                    Invoke("DestroyNPC", destroyDelay);
-                    Debug.Log("Antes ");
-                    DesactivarImagenesNPCSouls();
-                    Debug.Log("Después ");
+                DesactivarImagenesNPCSouls();
+                Debug.Log("Después ");
 
-
-                    catnipSubtracted = true;
-                }
-                else
-                {
-
-                    catnipImage.sprite = sadFaceSprite;
-                }
+                catnipSubtracted = true;
+            }
+            else
+            {
+                catnipImage.sprite = sadFaceSprite;
             }
         }
     }
+
     void DesactivarImagenesNPCSouls()
     {
-        GameObject[] npcSouls = GameObject.FindGameObjectsWithTag("npcSouls");
+        // Obtén la referencia al componente NPCData
+        NPCData npcData = GetComponent<NPCData>();
 
-        foreach (GameObject npcSoul in npcSouls)
+        if (npcData != null)
         {
-            // Desactivar el componente Image (si existe)
-            Image imageComponent = npcSoul.GetComponent<Image>();
+            // Obtén la referencia al objeto del canvas asociado al NPC actual
+            GameObject canvasObject = npcData.canvasObject;
 
-            if (imageComponent != null)
+            if (canvasObject != null)
             {
-                imageComponent.enabled = false;
+                // Desactivar el componente Image (si existe)
+                Image imageComponent = canvasObject.GetComponent<Image>();
+
+                if (imageComponent != null)
+                {
+                    imageComponent.enabled = false;
+                }
+
+                // Desactivar el componente MeshRenderer (si existe)
+                MeshRenderer meshRendererComponent = canvasObject.GetComponent<MeshRenderer>();
+
+                if (meshRendererComponent != null)
+                {
+                    meshRendererComponent.enabled = false;
+                }
+
+                // Desactivar el objeto completo
+                canvasObject.SetActive(false);
             }
-
-            // Desactivar el componente MeshRenderer (si existe)
-            MeshRenderer meshRendererComponent = npcSoul.GetComponent<MeshRenderer>();
-
-            if (meshRendererComponent != null)
+            else
             {
-                meshRendererComponent.enabled = false;
+                Debug.LogError("El campo 'canvasObject' en NPCData es null.");
             }
-
-            // Desactivar el objeto completo
-            npcSoul.SetActive(false);
+        }
+        else
+        {
+            Debug.LogError("El componente NPCData no está adjunto al NPC.");
         }
     }
 
@@ -95,20 +112,4 @@ public class NPCCatnipsNeeded : MonoBehaviour
         catCounting.NPCPosition = transform.position; // guarda la posición del NPC
         Destroy(gameObject);
     }
-
-    /*
-   
-
-    void DestroyNPC()
-    {
-        catCounting.CatNumber += 1; // cada vez que se destuya suma 1 
-        for (int i = 0; i < dialogueImages.Length; i++)
-        {
-            catCounting.dialogueImages[i] = dialogueImages[i];
-        }
-        catCounting.IsCathuluVisible = true;
-        catCounting.NPCPosition = this.gameObject.transform.position; // guarda la posicoon del npc
-        Destroy(gameObject);
-    }
-     */
 }
