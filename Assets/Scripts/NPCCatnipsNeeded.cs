@@ -26,39 +26,39 @@ public class NPCCatnipsNeeded : MonoBehaviour
     {
         catnipImage.sprite = sadFaceSprite;
         canInteract = true;
-       
-            if (!catnipSubtracted && other.tag == "Player")
+
+        if (!catnipSubtracted && other.tag == "Player")
+        {
+            CatnipCounter catnipCounterScript = GameObject.FindWithTag("CatnipCounter").GetComponent<CatnipCounter>();
+
+            if (catnipCounterScript != null && catnipCounterScript.HasEnoughCatnips(requiredCatnip) && _satisfied == false)
             {
-                CatnipCounter catnipCounterScript = GameObject.FindWithTag("CatnipCounter").GetComponent<CatnipCounter>();
+                catnipCounterScript.SubtractCatnips(requiredCatnip);
+                requiredCatnip = 0;
+                _satisfied = true;
 
-                if (catnipCounterScript != null && catnipCounterScript.HasEnoughCatnips(requiredCatnip) && _satisfied == false)
-                {
-                    catnipCounterScript.SubtractCatnips(requiredCatnip);
-                    requiredCatnip = 0;
-                    _satisfied = true;
+                catnipImage.sprite = happyFaceSprite;
+                Invoke("DestroyNPC", destroyDelay);
+                Debug.Log("Antes ");
 
-                    catnipImage.sprite = happyFaceSprite;
-                    Invoke("DestroyNPC", destroyDelay);
-                    Debug.Log("Antes ");
+                // Accede a los datos espec?ficos del NPC directamente aqu?
+                Debug.Log("Nombre del NPC: " + npcName);
+                Debug.Log("Catnips necesarios: " + catnipsNeeded);
 
-                    // Accede a los datos específicos del NPC directamente aquí
-                    Debug.Log("Nombre del NPC: " + npcName);
-                    Debug.Log("Catnips necesarios: " + catnipsNeeded);
+                DesactivarImagenesNPCSouls();
+                Debug.Log("Despu?s ");
 
-                    DesactivarImagenesNPCSouls();
-                    Debug.Log("Después ");
+                catnipSubtracted = true;
 
-                    catnipSubtracted = true;
-
-                }
-                else
-                {
-                    catnipImage.sprite = sadFaceSprite;
-                    canInteract = true;
-                }
             }
+            else
+            {
+                catnipImage.sprite = sadFaceSprite;
+                canInteract = true;
+            }
+        }
     }
-    void OnTriggerExit2D(Collider2D other)
+        void OnTriggerExit2D(Collider2D other)
     {
         catnipImage.sprite = null;
         canInteract = false;
