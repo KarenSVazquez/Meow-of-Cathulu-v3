@@ -57,17 +57,17 @@ public class NPCCatnipsNeeded : MonoBehaviour
 
     void DesactivarImagenesNPCSouls()
     {
-        // Obtén la referencia al componente NPCData
+        // componente NPCData
         NPCData npcData = GetComponent<NPCData>();
 
         if (npcData != null)
         {
-            // Obtén la referencia al objeto del canvas asociado al NPC actual
+            // objeto del canvas asociado al NPC actual
             GameObject canvasObject = npcData.canvasObject;
 
             if (canvasObject != null)
             {
-                // Desactivar el componente Image (si existe)
+                // Desactivar  Image (si existe)
                 Image imageComponent = canvasObject.GetComponent<Image>();
 
                 if (imageComponent != null)
@@ -75,7 +75,7 @@ public class NPCCatnipsNeeded : MonoBehaviour
                     imageComponent.enabled = false;
                 }
 
-                // Desactivar el componente MeshRenderer (si existe)
+                // Desactivar  MeshRenderer (si existe)
                 MeshRenderer meshRendererComponent = canvasObject.GetComponent<MeshRenderer>();
 
                 if (meshRendererComponent != null)
@@ -83,17 +83,17 @@ public class NPCCatnipsNeeded : MonoBehaviour
                     meshRendererComponent.enabled = false;
                 }
 
-                // Desactivar el objeto completo
+                // Desactivar el objeto 
                 canvasObject.SetActive(false);
             }
             else
             {
-                Debug.LogError("campo 'canvasObject' en NPCData es null.");
+                Debug.LogError(" 'canvasObject' en NPCData es null.");
             }
         }
         else
         {
-            Debug.LogError("componente NPCData no está en NPC.");
+            Debug.LogError(" NPCData no está en NPC.");
         }
     }
 
@@ -133,11 +133,30 @@ public class NPCCatnipsNeeded : MonoBehaviour
                 requiredCatnip = 0;
                 _satisfied = true;
 
-                Invoke("DestroyNPC", destroyDelay);
-                DesactivarImagenesNPCSouls();
+                // Mostrar el happy face
+                catnipImage.sprite = happyFaceSprite;
+
+                // Esperar antes de ejecutar el resto del código
+                StartCoroutine(DelayedInteraction());
+            }
+            else
+            {
+                // muestra el sad face si no hay suficientes catnips
+                catnipImage.sprite = sadFaceSprite;
             }
         }
     }
+
+    IEnumerator DelayedInteraction()
+    {
+        // Esperar 0.5 segundos antes 
+        yield return new WaitForSeconds(0.5f);
+
+        // Ejecutar el resto del código después de esperar
+        DestroyNPC();
+        DesactivarImagenesNPCSouls();
+    }
+
 
 
 }
