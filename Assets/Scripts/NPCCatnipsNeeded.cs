@@ -29,6 +29,7 @@ public class NPCCatnipsNeeded : MonoBehaviour
 
         if (!catnipSubtracted && other.tag == "Player")
         {
+            Debug.Log("Player entered NPC area");
             CatnipCounter catnipCounterScript = GameObject.FindWithTag("CatnipCounter").GetComponent<CatnipCounter>();
 
             if (catnipCounterScript != null && catnipCounterScript.HasEnoughCatnips(requiredCatnip) && _satisfied == false)
@@ -41,25 +42,20 @@ public class NPCCatnipsNeeded : MonoBehaviour
                 Invoke("DestroyNPC", destroyDelay);
                 Debug.Log("Antes ");
 
-                // Accede a los datos espec?ficos del NPC directamente aqu?
-                Debug.Log("Nombre del NPC: " + npcName);
-                Debug.Log("Catnips necesarios: " + catnipsNeeded);
-
                 DesactivarImagenesNPCSouls();
-                Debug.Log("Despu?s ");
-
                 catnipSubtracted = true;
-
+         
             }
             else
             {
                 catnipImage.sprite = sadFaceSprite;
-                canInteract = true;
+              //  canInteract = true;
             }
         }
     }
         void OnTriggerExit2D(Collider2D other)
     {
+        Debug.Log("Player exited NPC area");
         catnipImage.sprite = null;
         canInteract = false;
 
@@ -133,8 +129,11 @@ public class NPCCatnipsNeeded : MonoBehaviour
         CatnipCounter catnipCounterScript = GameObject.FindWithTag("CatnipCounter").GetComponent<CatnipCounter>();
         if (canInteract && Input.GetButtonDown("Activate") && !catnipSubtracted)
         {
+            Debug.Log("canInteract: " + canInteract);
+            Debug.Log("Button pressed: " + Input.GetButtonDown("Activate"));
             if (catnipCounterScript != null && catnipCounterScript.HasEnoughCatnips(requiredCatnip) && _satisfied == false)
             {
+                Debug.Log("2do if update");
                 catnipSubtracted = true;
                 catnipCounterScript.SubtractCatnips(requiredCatnip);
                 requiredCatnip = 0;
