@@ -24,36 +24,27 @@ public class NPCCatnipsNeeded : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        catnipImage.sprite = sadFaceSprite;
-        canInteract = true;
-
-        if (!catnipSubtracted && other.tag == "Player")
         {
-            Debug.Log("Player entered NPC area");
-            CatnipCounter catnipCounterScript = GameObject.FindWithTag("CatnipCounter").GetComponent<CatnipCounter>();
+            catnipImage.sprite = sadFaceSprite;
+            canInteract = true;
 
-            if (catnipCounterScript != null && catnipCounterScript.HasEnoughCatnips(requiredCatnip) && _satisfied == false)
+            if (!catnipSubtracted && other.tag == "Player")
             {
-                catnipCounterScript.SubtractCatnips(requiredCatnip);
-                requiredCatnip = 0;
-                _satisfied = true;
-
-                catnipImage.sprite = happyFaceSprite;
-                Invoke("DestroyNPC", destroyDelay);
-                Debug.Log("Antes ");
-
-                DesactivarImagenesNPCSouls();
-                catnipSubtracted = true;
-         
+                Debug.Log("Player entered NPC area");
+                HandleInteraction();
             }
             else
             {
+                Debug.Log("Sad face set");
                 catnipImage.sprite = sadFaceSprite;
-              //  canInteract = true;
+                catnipImage.enabled = false;
+                canInteract = true;
             }
         }
+
     }
-        void OnTriggerExit2D(Collider2D other)
+
+    void OnTriggerExit2D(Collider2D other)
     {
         Debug.Log("Player exited NPC area");
         catnipImage.sprite = null;
@@ -126,21 +117,27 @@ public class NPCCatnipsNeeded : MonoBehaviour
 
     private void Update()
     {
+        HandleInteraction();
+    }
+
+    private void HandleInteraction()
+    {
         CatnipCounter catnipCounterScript = GameObject.FindWithTag("CatnipCounter").GetComponent<CatnipCounter>();
+
         if (canInteract && Input.GetButtonDown("Activate") && !catnipSubtracted)
         {
-            Debug.Log("canInteract: " + canInteract);
-            Debug.Log("Button pressed: " + Input.GetButtonDown("Activate"));
             if (catnipCounterScript != null && catnipCounterScript.HasEnoughCatnips(requiredCatnip) && _satisfied == false)
             {
-                Debug.Log("2do if update");
                 catnipSubtracted = true;
                 catnipCounterScript.SubtractCatnips(requiredCatnip);
                 requiredCatnip = 0;
                 _satisfied = true;
-                Invoke("DestroyNPC", destroyDelay);
 
+                Invoke("DestroyNPC", destroyDelay);
+                DesactivarImagenesNPCSouls();
             }
         }
     }
+
+
 }
