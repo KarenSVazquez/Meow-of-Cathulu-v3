@@ -13,6 +13,7 @@ public class NPCCatnipsNeeded : MonoBehaviour
     public float destroyDelay = 1.0f;
     public SO_CatCounting catCounting;
     public Sprite[] dialogueImages;
+    public bool canInteract = false;
 
     // Datos específicos del NPC
     public string npcName;
@@ -23,35 +24,49 @@ public class NPCCatnipsNeeded : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (!catnipSubtracted && other.tag == "Player")
-        {
-            CatnipCounter catnipCounterScript = GameObject.FindWithTag("CatnipCounter").GetComponent<CatnipCounter>();
-
-            if (catnipCounterScript != null && catnipCounterScript.HasEnoughCatnips(requiredCatnip) && _satisfied == false)
+        catnipImage.sprite = sadFaceSprite;
+        canInteract = true;
+       
+            if (!catnipSubtracted && other.tag == "Player")
             {
-                catnipCounterScript.SubtractCatnips(requiredCatnip);
-                requiredCatnip = 0;
-                _satisfied = true;
+                CatnipCounter catnipCounterScript = GameObject.FindWithTag("CatnipCounter").GetComponent<CatnipCounter>();
 
-                catnipImage.sprite = happyFaceSprite;
-                Invoke("DestroyNPC", destroyDelay);
-                Debug.Log("Antes ");
+                if (catnipCounterScript != null && catnipCounterScript.HasEnoughCatnips(requiredCatnip) && _satisfied == false)
+                {
+                    catnipCounterScript.SubtractCatnips(requiredCatnip);
+                    requiredCatnip = 0;
+                    _satisfied = true;
 
-                // Accede a los datos específicos del NPC directamente aquí
-                Debug.Log("Nombre del NPC: " + npcName);
-                Debug.Log("Catnips necesarios: " + catnipsNeeded);
+                    catnipImage.sprite = happyFaceSprite;
+                    Invoke("DestroyNPC", destroyDelay);
+                    Debug.Log("Antes ");
 
-                DesactivarImagenesNPCSouls();
-                Debug.Log("Después ");
+                    // Accede a los datos específicos del NPC directamente aquí
+                    Debug.Log("Nombre del NPC: " + npcName);
+                    Debug.Log("Catnips necesarios: " + catnipsNeeded);
 
-                catnipSubtracted = true;
+                    DesactivarImagenesNPCSouls();
+                    Debug.Log("Después ");
+
+                    catnipSubtracted = true;
+
+                }
+                else
+                {
+                    catnipImage.sprite = sadFaceSprite;
+                    canInteract = true;
+                }
             }
-            else
-            {
-                catnipImage.sprite = sadFaceSprite;
-            }
-        }
     }
+    void OnTriggerExit2D(Collider2D other)
+    {
+        catnipImage.sprite = null;
+        canInteract = false;
+
+    }
+
+
+
 
     void DesactivarImagenesNPCSouls()
     {
@@ -111,5 +126,22 @@ public class NPCCatnipsNeeded : MonoBehaviour
         catCounting.IsCathuluVisible = true;
         catCounting.NPCPosition = transform.position; // guarda la posición del NPC
         Destroy(gameObject);
+    }
+
+    private void Update()
+    {
+        CatnipCounter catnipCounterScript = GameObject.FindWithTag("CatnipCounter").GetComponent<CatnipCounter>();
+        if (canInteract && Input.GetButtonDown("Activate") && !catnipSubtracted)
+        {
+            if (catnipCounterScript != null && catnipCounterScript.HasEnoughCatnips(requiredCatnip) && _satisfied == false)
+            {
+                catnipSubtracted = true;
+                catnipCounterScript.SubtractCatnips(requiredCatnip);
+                requiredCatnip = 0;
+                _satisfied = true;
+                Invoke("DestroyNPC", destroyDelay);
+
+            }
+        }
     }
 }
