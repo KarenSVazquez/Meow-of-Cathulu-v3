@@ -14,34 +14,40 @@ public class NPCCatnipsNeeded : MonoBehaviour
     public SO_CatCounting catCounting;
     public Sprite[] dialogueImages;
     public bool canInteract = false;
+    public int canvasIndex;
 
-    // Datos específicos del NPC
-    public string npcName;
-    public int catnipsNeeded;
-
-    // Variable para realizar el seguimiento de si ya se restó una vez
     private bool catnipSubtracted = false;
+
+    void Awake()
+    {
+        if (catCounting != null)
+        {
+            catCounting.InitializeCanvasObjectIndices();
+            catCounting.FindCanvasObjects(); // Añadido para encontrar automáticamente objetos del canvas
+        }
+        else
+        {
+            Debug.LogError("catCounting no está asignado en " + gameObject.name);
+        }
+    }
 
     void OnTriggerEnter2D(Collider2D other)
     {
+        catnipImage.sprite = sadFaceSprite;
+        canInteract = true;
+
+        if (!catnipSubtracted && other.tag == "Player")
         {
-            catnipImage.sprite = sadFaceSprite;
-            canInteract = true;
-
-            if (!catnipSubtracted && other.tag == "Player")
-            {
-                Debug.Log("Player entered NPC area");
-                HandleInteraction();
-            }
-            else
-            {
-                Debug.Log("Sad face set");
-                catnipImage.sprite = sadFaceSprite;
-                catnipImage.enabled = false;
-                canInteract = true;
-            }
+            Debug.Log("Player entered NPC area");
+            HandleInteraction();
         }
-
+        else
+        {
+            Debug.Log("Sad face set");
+            catnipImage.sprite = sadFaceSprite;
+            catnipImage.enabled = false;
+            canInteract = true;
+        }
     }
 
     void OnTriggerExit2D(Collider2D other)
@@ -49,59 +55,50 @@ public class NPCCatnipsNeeded : MonoBehaviour
         Debug.Log("Player exited NPC area");
         catnipImage.sprite = null;
         canInteract = false;
-
     }
-
-
-
 
     void DesactivarImagenesNPCSouls()
     {
-        // componente NPCData
-        NPCData npcData = GetComponent<NPCData>();
-
-        if (npcData != null)
+        if (catCounting.canvasObjectIndices.Length > 0)
         {
-            // objeto del canvas asociado al NPC actual
-            GameObject canvasObject = npcData.canvasObject;
+            // Obtener el índice del último elemento del array
+            int lastIndex = catCounting.canvasObjectIndices.Length - 1;
 
-            if (canvasObject != null)
+            // Obtener el índice del objeto del canvas actual
+            int canvasIndex = catCounting.canvasObjectIndices[lastIndex];
+
+            if (canvasIndex >= 0 && canvasIndex < catCounting.canvasObjects.Length)
             {
-                // Desactivar  Image (si existe)
+                GameObject canvasObject = catCounting.canvasObjects[canvasIndex];
+
                 Image imageComponent = canvasObject.GetComponent<Image>();
+                if (imageComponent != null) imageComponent.enabled = false;
 
-                if (imageComponent != null)
-                {
-                    imageComponent.enabled = false;
-                }
-
-                // Desactivar  MeshRenderer (si existe)
                 MeshRenderer meshRendererComponent = canvasObject.GetComponent<MeshRenderer>();
+                if (meshRendererComponent != null) meshRendererComponent.enabled = false;
 
-                if (meshRendererComponent != null)
-                {
-                    meshRendererComponent.enabled = false;
-                }
-
-                // Desactivar el objeto 
                 canvasObject.SetActive(false);
+
+                // Eliminar el último índice del array
+                List<int> remainingIndices = new List<int>(catCounting.canvasObjectIndices);
+                remainingIndices.RemoveAt(lastIndex);
+                catCounting.canvasObjectIndices = remainingIndices.ToArray();
             }
             else
             {
-                Debug.LogError(" 'canvasObject' en NPCData es null.");
+                Debug.LogError(" i está fuera del rango del array de canvasObjects.");
             }
         }
         else
         {
-            Debug.LogError(" NPCData no está en NPC.");
+            Debug.LogError("No hay más objetos del canvas o el índice del NPC no está.");
         }
     }
 
 
-
     void DestroyNPC()
     {
-        catCounting.CatNumber += 1; // cada vez que se destruye, suma 1 
+        catCounting.CatNumber += 1;
 
         int length = Mathf.Min(dialogueImages.Length, catCounting.dialogueImages.Length);
 
@@ -111,7 +108,7 @@ public class NPCCatnipsNeeded : MonoBehaviour
         }
 
         catCounting.IsCathuluVisible = true;
-        catCounting.NPCPosition = transform.position; // guarda la posición del NPC
+        catCounting.NPCPosition = transform.position;
         Destroy(gameObject);
     }
 
@@ -133,15 +130,12 @@ public class NPCCatnipsNeeded : MonoBehaviour
                 requiredCatnip = 0;
                 _satisfied = true;
 
-                // Mostrar el happy face
                 catnipImage.sprite = happyFaceSprite;
 
-                // Esperar antes de ejecutar el resto del código
                 StartCoroutine(DelayedInteraction());
             }
             else
             {
-                // muestra el sad face si no hay suficientes catnips
                 catnipImage.sprite = sadFaceSprite;
             }
         }
@@ -149,14 +143,8 @@ public class NPCCatnipsNeeded : MonoBehaviour
 
     IEnumerator DelayedInteraction()
     {
-        // Esperar 0.5 segundos antes 
         yield return new WaitForSeconds(0.5f);
-
-        // Ejecutar el resto del código después de esperar
         DestroyNPC();
         DesactivarImagenesNPCSouls();
     }
-
-
-
 }

@@ -12,8 +12,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f98859ce9cd594a94b989083d64f80, type: 3}
   m_Name: CatCounter
   m_EditorClassIdentifier: 
-  CatNumber: 6
+  CatNumber: 7
   CatGoal: 0
   dialogueImages: []
   IsCathuluVisible: 0
-  NPCPosition: {x: 3.45, y: -3.79, z: 0}
+  NPCPosition: {x: -16.869, y: 3.656, z: 0}
+  canvasObjectIndices: 
+  canvasObjects:
+  - {fileID: 0}
