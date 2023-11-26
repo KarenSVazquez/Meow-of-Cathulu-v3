@@ -22,13 +22,12 @@ public class SO_CatCounting : ScriptableObject
         // Asigna el número de obj del canvas
         canvasObjectIndices = new int[numberOfCanvasObjects];
 
-        // índices en orden inverso
+        // posicion i comenzando desde el final del array
         for (int i = 0; i < numberOfCanvasObjects; i++)
         {
-            canvasObjectIndices[i] = numberOfCanvasObjects - 1 - i;
+            canvasObjectIndices[i] = i;
         }
     }
-
 
 
     // encuentra automáticamente objetos del canvas al despertar
