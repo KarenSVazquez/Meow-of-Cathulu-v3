@@ -133,6 +133,7 @@ public class NPCCatnipsNeeded : MonoBehaviour
                 catnipImage.sprite = happyFaceSprite;
 
                 StartCoroutine(DelayedInteraction());
+                catCounting.CheckVictoryCondition();
             }
             else
             {
