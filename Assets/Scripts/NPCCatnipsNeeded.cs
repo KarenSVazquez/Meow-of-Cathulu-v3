@@ -20,18 +20,15 @@ public class NPCCatnipsNeeded : MonoBehaviour
 
     void Awake()
     {
-        catCounting.InitializeCanvasObjectIndices();
-        /*
-                if (catCounting != null)
-                {
-                    catCounting.InitializeCanvasObjectIndices();
-                  //  catCounting.FindCanvasObjects(); // Añadido para encontrar automáticamente objetos del canvas
-                }
-                else
-                {
-                    Debug.LogError("catCounting no está asignado en " + gameObject.name);
-                }
-        */
+        if (catCounting != null)
+        {
+            catCounting.InitializeCanvasObjectIndices();
+            catCounting.FindCanvasObjects(); // Añadido para encontrar automáticamente objetos del canvas
+        }
+        else
+        {
+            Debug.LogError("catCounting no está asignado en " + gameObject.name);
+        }
     }
 
     void OnTriggerEnter2D(Collider2D other)
@@ -136,7 +133,7 @@ public class NPCCatnipsNeeded : MonoBehaviour
                 catnipImage.sprite = happyFaceSprite;
 
                 StartCoroutine(DelayedInteraction());
-                catCounting.CheckVictoryCondition();
+               // catCounting.CheckVictoryCondition();
             }
             else
             {

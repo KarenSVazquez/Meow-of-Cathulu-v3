@@ -31,26 +31,25 @@ public class SO_CatCounting : ScriptableObject
 
 
     // encuentra automáticamente objetos del canvas al despertar
-    //testtts
-    /*
-       public void FindCanvasObjects()
-       {
-           canvasObjects = GameObject.FindGameObjectsWithTag("npcSouls");
-       }
-       */
+    public void FindCanvasObjects()
+    {
+        canvasObjects = GameObject.FindGameObjectsWithTag("npcSouls");
+    }
 
     public int GetNPCIndex(GameObject npcObject)
     {
         return Array.IndexOf(canvasObjects, npcObject);
     }
 
-    public void CheckVictoryCondition()
-    {
-        if (CatNumber >= CatGoal)
-        {
-            Debug.Log("entra if catgoal??");
-            // Se cumplió la condición de victoria, carga la escena de victoria
-            FindObjectOfType<LoadScene>().LoadVictoryScene();
-        }
-    }
+    /*
+     public void CheckVictoryCondition()
+     {
+         if (CatNumber >= CatGoal)
+         {
+             Debug.Log("entra if catgoal??");
+             // Se cumplió la condición de victoria, carga la escena de victoria
+             FindObjectOfType<LoadScene>().LoadVictoryScene();
+         }
+     }
+     */
 }
