@@ -20,15 +20,18 @@ public class NPCCatnipsNeeded : MonoBehaviour
 
     void Awake()
     {
-        if (catCounting != null)
-        {
-            catCounting.InitializeCanvasObjectIndices();
-            catCounting.FindCanvasObjects(); // Añadido para encontrar automáticamente objetos del canvas
-        }
-        else
-        {
-            Debug.LogError("catCounting no está asignado en " + gameObject.name);
-        }
+        catCounting.InitializeCanvasObjectIndices();
+        /*
+                if (catCounting != null)
+                {
+                    catCounting.InitializeCanvasObjectIndices();
+                  //  catCounting.FindCanvasObjects(); // Añadido para encontrar automáticamente objetos del canvas
+                }
+                else
+                {
+                    Debug.LogError("catCounting no está asignado en " + gameObject.name);
+                }
+        */
     }
 
     void OnTriggerEnter2D(Collider2D other)

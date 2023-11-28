@@ -32,10 +32,12 @@ public class SO_CatCounting : ScriptableObject
 
     // encuentra automáticamente objetos del canvas al despertar
     //testtts
-    public void FindCanvasObjects()
-    {
-        canvasObjects = GameObject.FindGameObjectsWithTag("npcSouls");
-    }
+    /*
+       public void FindCanvasObjects()
+       {
+           canvasObjects = GameObject.FindGameObjectsWithTag("npcSouls");
+       }
+       */
 
     public int GetNPCIndex(GameObject npcObject)
     {
