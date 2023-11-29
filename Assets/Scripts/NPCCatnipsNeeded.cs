@@ -8,7 +8,6 @@ public class NPCCatnipsNeeded : MonoBehaviour
     public int requiredCatnip = 0;
     public bool _satisfied = false;
     public SpriteRenderer catnipImage;
-    public Sprite happyFaceSprite;
     public Sprite sadFaceSprite;
     public float destroyDelay = 1.0f;
     public SO_CatCounting catCounting;
@@ -129,8 +128,6 @@ public class NPCCatnipsNeeded : MonoBehaviour
                 catnipCounterScript.SubtractCatnips(requiredCatnip);
                 requiredCatnip = 0;
                 _satisfied = true;
-
-               // catnipImage.sprite = happyFaceSprite;
 
                 StartCoroutine(DelayedInteraction());
             }
