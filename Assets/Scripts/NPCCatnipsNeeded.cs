@@ -130,10 +130,9 @@ public class NPCCatnipsNeeded : MonoBehaviour
                 requiredCatnip = 0;
                 _satisfied = true;
 
-                catnipImage.sprite = happyFaceSprite;
+               // catnipImage.sprite = happyFaceSprite;
 
                 StartCoroutine(DelayedInteraction());
-               // catCounting.CheckVictoryCondition();
             }
             else
             {

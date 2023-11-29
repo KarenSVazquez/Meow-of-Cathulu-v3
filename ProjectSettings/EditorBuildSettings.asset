@@ -56,9 +56,6 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/CorgiEngine/Demos/Minimal/MinimalLevel.unity
     guid: b5dafbb7f5956d94ba41cd169cc39435
-  - enabled: 1
-    path: Assets/Scripts/VictoryScene.unity
-    guid: baaa3e39aa8323a48870deb0b5afc07d
   - enabled: 0
     path: Assets/CorgiEngine/Demos/Minimal/MinimalFlight.unity
     guid: 5714929c69111d6479988071c2f49c7c
