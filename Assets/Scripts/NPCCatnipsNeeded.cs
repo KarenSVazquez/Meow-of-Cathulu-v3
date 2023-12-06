@@ -60,11 +60,10 @@ public class NPCCatnipsNeeded : MonoBehaviour
     {
         if (catCounting.canvasObjectIndices.Length > 0)
         {
-            // Obtener el índice del último elemento del array
-            int lastIndex = catCounting.canvasObjectIndices.Length - 1;
+            List<int> remainingIndices = new List<int>(catCounting.canvasObjectIndices);
 
-            // Obtener el índice del objeto del canvas actual
-            int canvasIndex = catCounting.canvasObjectIndices[lastIndex];
+            // Tomar el primer índice del array
+            int canvasIndex = remainingIndices[0];
 
             if (canvasIndex >= 0 && canvasIndex < catCounting.canvasObjects.Length)
             {
@@ -78,22 +77,20 @@ public class NPCCatnipsNeeded : MonoBehaviour
 
                 canvasObject.SetActive(false);
 
-                // Eliminar el último índice del array
-                List<int> remainingIndices = new List<int>(catCounting.canvasObjectIndices);
-                remainingIndices.RemoveAt(lastIndex);
+                // Eliminar el primer índice del array
+                remainingIndices.RemoveAt(0);
                 catCounting.canvasObjectIndices = remainingIndices.ToArray();
             }
             else
             {
-                Debug.LogError(" i está fuera del rango del array de canvasObjects.");
+                Debug.LogError("El índice fuera del rango de canvasObjects.");
             }
         }
         else
         {
-            Debug.LogError("No hay más objetos del canvas o el índice del NPC no está.");
+            Debug.LogError("No hay índice del NPC no está.");
         }
     }
-
 
     void DestroyNPC()
     {
