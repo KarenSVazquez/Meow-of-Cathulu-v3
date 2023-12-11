@@ -29345,7 +29345,7 @@ AudioSource:
   m_Enabled: 1
   serializedVersion: 4
   OutputAudioMixerGroup: {fileID: 0}
-  m_audioClip: {fileID: 8300000, guid: bb73c752ce5ec9f448edaf0a8313143e, type: 3}
+  m_audioClip: {fileID: 8300000, guid: 614cce00267ac7343a84b961d84858b1, type: 3}
   m_PlayOnAwake: 1
   m_Volume: 1
   m_Pitch: 1
@@ -29478,8 +29478,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 862.78, y: 328.48}
+  m_AnchoredPosition: {x: 0, y: 1.6}
+  m_SizeDelta: {x: 909.8, y: 210.91}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &325858117
 MonoBehaviour:
@@ -29536,7 +29536,7 @@ MonoBehaviour:
   m_fontSizeMax: 72
   m_fontStyle: 1
   m_HorizontalAlignment: 1
-  m_VerticalAlignment: 256
+  m_VerticalAlignment: 512
   m_textAlignment: 65535
   m_characterSpacing: 0
   m_wordSpacing: 0
@@ -29744,9 +29744,9 @@ AudioSource:
     type: 2}
   m_audioClip: {fileID: 8300000, guid: a1a53aade02ec1e4490c331c7e11d8c9, type: 3}
   m_PlayOnAwake: 1
-  m_Volume: 0.2
+  m_Volume: 0.18
   m_Pitch: 1
-  Loop: 0
+  Loop: 1
   Mute: 0
   Spatialize: 0
   SpatializePostEffects: 0
@@ -30288,8 +30288,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -496.74005, y: 107.22}
-  m_SizeDelta: {x: -1122.07, y: -659.99}
+  m_AnchoredPosition: {x: -496.74005, y: 190.52002}
+  m_SizeDelta: {x: -1122.07, y: -826.59}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &632544132
 MonoBehaviour:
@@ -30305,11 +30305,16 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   textComponent: {fileID: 325858117}
   lines:
-  - hola esto es una prueba
-  - ' a ver si me anda el texto automatico para ponerle a la intro'
-  - aaaaaaaaaaaaaaaaaa
-  - si, anda
-  textSpeed: 0.3
+  - que hace un hijo de cathulu solo en un cementerio...
+  - ah, veo que estas de luto hijo mio...
+  - Intuyo que quieres a tu humano de vuelta, verdad?
+  - Tengo algo que proponerte... pareces tener el coraje y la motivacion
+  - Lidera mi culto y te ayudare a cumplir tu deseo.
+  - Haz que 8 gatos se entreguen a mi. Tu sabras como.
+  - Acercate a la gran estatua una vez que lo hayas conseguido y te dare lo que deseas.
+  - revivire a tu humano... si, eso hare.
+  - Puedes comenzar ahora.
+  textSpeed: 0.1
 --- !u!114 &632544133
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -30323,7 +30328,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 0, g: 1, b: 0.14966917, a: 0.392}
   m_RaycastTarget: 1
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
