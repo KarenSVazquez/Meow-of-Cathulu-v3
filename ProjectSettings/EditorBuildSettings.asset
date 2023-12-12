@@ -15,11 +15,14 @@ EditorBuildSettings:
     path: Assets/Scenes/CutScene_Inicial.unity
     guid: 4b5daef5633f7a041a3810a32c7f331e
   - enabled: 1
-    path: Assets/CorgiEngine/ThirdParty/MoreMountains/MMTools/Tools/MMSceneLoading/LoadingScreens/LoadingScreen.unity
-    guid: 888394d52616e5e42b3b54c3f2bbd3eb
-  - enabled: 1
     path: Assets/CorgiEngine/Demos/Minimal/MinimalLevel.unity
     guid: b5dafbb7f5956d94ba41cd169cc39435
+  - enabled: 1
+    path: Assets/Scenes/CutScene_Final.unity
+    guid: 0727da445bd765f44bfebe6f3d8708b7
+  - enabled: 0
+    path: Assets/CorgiEngine/ThirdParty/MoreMountains/MMTools/Tools/MMSceneLoading/LoadingScreens/LoadingScreen.unity
+    guid: 888394d52616e5e42b3b54c3f2bbd3eb
   - enabled: 0
     path: Assets/CorgiEngine/ThirdParty/MoreMountains/MMTools/Tools/MMSceneLoading/LoadingScreens/MMAdditiveLoadingScreen.unity
     guid: d89b77a7a68c1844280c6ff2e49f95b8
