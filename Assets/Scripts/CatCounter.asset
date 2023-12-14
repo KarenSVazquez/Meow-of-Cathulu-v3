@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c7f98859ce9cd594a94b989083d64f80, type: 3}
   m_Name: CatCounter
   m_EditorClassIdentifier: 
-  CatNumber: 8
+  CatNumber: 0
   CatGoal: 0
   dialogueImages: []
   IsCathuluVisible: 0
